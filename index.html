@@ -175,6 +175,18 @@ void main(){
             }
             return query;
         }
+        
+      window.socket = new ws('ws://' + videodromm-websocket.azurewebsites.net + ':80');
+        window.socket.on('frag', function(evt) {
+            var shaderText = evt.data;
+            shaderText = shaderText.replace(/3 iR/gm, '2 u_r');
+            shaderText = shaderText.replace(/iR/gm, 'u_r');
+            shaderText = shaderText.replace(/iChannel/gm, 'u_tex');
+            shaderText = shaderText.replace(/4 iMouse/gm, '2 u_mouse');
+            shaderText = shaderText.replace(/iM/gm, 'u_m');
+            sandbox_content = shaderText.replace(/iGlobalTime/gm, 'u_time');
+            sandbox.load(shaderText);
+        });
 
         function load(url) {
             // Make the request and wait for the reply
