@@ -176,7 +176,7 @@ void main(){
             return query;
         }
 
-      window.socket = new ws('wss://videodromm-websocket.azurewebsites.net');
+      window.socket = new ws('ws://localhost:8088');
         window.socket.on('frag', function(evt) {
             var shaderText = evt.data;
             shaderText = shaderText.replace(/3 iR/gm, '2 u_r');
